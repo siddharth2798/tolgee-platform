@@ -42,7 +42,7 @@ data class UserAccount(
 
   var name: String = "",
   @Enumerated(EnumType.STRING)
-  var role: Role? = Role.USER
+  var role: Role = Role.USER
 ) : AuditModel(), ModelWithAvatar {
 
   @OneToMany(mappedBy = "user")
@@ -75,7 +75,7 @@ data class UserAccount(
     password: String?,
     name: String?,
     permissions: MutableSet<Permission>?,
-    role: Role?,
+    role: Role = Role.USER,
     thirdPartyAuthType: String?,
     thirdPartyAuthId: String?,
     resetPasswordCode: String?
